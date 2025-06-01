@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: linear-gradient(135deg, #a8d8ff, #d8b8ff);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .word-block {
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .word-block:hover {
+            transform: translateY(-3px);
+        }
+        .phonetic {
+            font-size: 0.7em;
+            color: #e74c3c;
+        }
+        .word {
+            font-size: 1em;
+            user-select: none;
+        }
+        .sentence {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .sentence-number {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #2c3e50;
+        }
+        #voice-select-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+        }
+        #voice-select {
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 下拉菜单 -->
+<div id="voice-select-container">
+    <label for="voice-select">选择发音：</label>
+    <select id="voice-select">
+        <option value="en-GB" selected>英式 English (UK)</option>
+        <option value="en-US">美式 English (US)</option>
+        <option value="en-AU">澳式 English (Australia)</option>
+        <option value="en-CA">加式 English (Canada)</option>
+    </select>
+</div>
+
+
+
+<script>
+    function speak(event, word) {
+        const cleanWord = word.replace(/[,.!?;:']+$/, '');
+        const utterance = new SpeechSynthesisUtterance(cleanWord);
+        
+        // 使用下拉选择的语言
+        const selectedLang = document.getElementById('voice-select').value;
+        utterance.lang = selectedLang;
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        // 发音高亮效果
+        const wordElements = document.querySelectorAll('.word');
+        wordElements.forEach(el => el.style.backgroundColor = 'transparent');
+        const wordDiv = event.target.closest('.word-block').querySelector('.word');
+        if (wordDiv) {
+            wordDiv.style.backgroundColor = '#ffeaa7';
+        }
+
+        utterance.onend = () => {
+            if (wordDiv) {
+                wordDiv.style.backgroundColor = 'transparent';
+            }
+        };
+
+        window.speechSynthesis.speak(utterance);
+    }
+</script>
+
+</body>
+</html>
+<!-- 句子1016 -->
+<div class="sentence">
+    <span class="sentence-number">1016</span>
+    <div class="word-block" onclick="speak(event, 'We')"><div class="phonetic">wiː</div><div class="word">We</div></div>
+    <div class="word-block" onclick="speak(event, 'seek')"><div class="phonetic">siːk</div><div class="word">seek</div></div>
+    <div class="word-block" onclick="speak(event, 'to')"><div class="phonetic">tuː</div><div class="word">to</div></div>
+    <div class="word-block" onclick="speak(event, 'improve')"><div class="phonetic">ɪmˈpruːv</div><div class="word">improve</div></div>
+    <div class="word-block" onclick="speak(event, 'learner\'s')"><div class="phonetic">ˈlɜːnəz</div><div class="word">learner's</div></div>
+    <div class="word-block" onclick="speak(event, 'experience')"><div class="phonetic">ɪkˈspɪəriəns</div><div class="word">experience</div></div>
+    <div class="word-block" onclick="speak(event, 'of')"><div class="phonetic">əv</div><div class="word">of</div></div>
+    <div class="word-block" onclick="speak(event, 'education')"><div class="phonetic">ˌedʒʊˈkeɪʃən</div><div class="word">education</div></div>
+    <div class="word-block" onclick="speak(event, 'at')"><div class="phonetic">æt</div><div class="word">at</div></div>
+    <div class="word-block" onclick="speak(event, 'college')"><div class="phonetic">ˈkɒlɪdʒ</div><div class="word">college</div></div>
+</div>
+
+<!-- 句子1015 -->
+<div class="sentence">
+    <span class="sentence-number">1015</span>
+    <div class="word-block" onclick="speak(event, 'People')"><div class="phonetic">ˈpiːpl</div><div class="word">People</div></div>
+    <div class="word-block" onclick="speak(event, 'today')"><div class="phonetic">təˈdeɪ</div><div class="word">today</div></div>
+    <div class="word-block" onclick="speak(event, 'are')"><div class="phonetic">ɑː</div><div class="word">are</div></div>
+    <div class="word-block" onclick="speak(event, 'more')"><div class="phonetic">mɔː</div><div class="word">more</div></div>
+    <div class="word-block" onclick="speak(event, 'likely')"><div class="phonetic">ˈlaɪkli</div><div class="word">likely</div></div>
+    <div class="word-block" onclick="speak(event, 'than')"><div class="phonetic">ðæn</div><div class="word">than</div></div>
+    <div class="word-block" onclick="speak(event, 'ever')"><div class="phonetic">ˈevə</div><div class="word">ever</div></div>
+    <div class="word-block" onclick="speak(event, 'to')"><div class="phonetic">tuː</div><div class="word">to</div></div>
+    <div class="word-block" onclick="speak(event, 'be')"><div class="phonetic">biː</div><div class="word">be</div></div>
+    <div class="word-block" onclick="speak(event, 'exposed')"><div class="phonetic">ɪkˈspəʊzd</div><div class="word">exposed</div></div>
+</div>
+
+<!-- 句子1014 -->
+<div class="sentence">
+    <span class="sentence-number">1014</span>
+    <div class="word-block" onclick="speak(event, 'In')"><div class="phonetic">ɪn</div><div class="word">In</div></div>
+    <div class="word-block" onclick="speak(event, 'search')"><div class="phonetic">sɜːtʃ əv</div><div class="word">search</div></div>
+    <div class="word-block" onclick="speak(event, 'of')"><div class="phonetic"></div><div class="word">of</div></div>
+    <div class="word-block" onclick="speak(event, 'gold')"><div class="phonetic">ɡəʊld ænd</div><div class="word">gold</div></div>
+    <div class="word-block" onclick="speak(event, 'and')"><div class="phonetic"></div><div class="word">and</div></div>
+    <div class="word-block" onclick="speak(event, 'silver')"><div class="phonetic">ˈsɪlvə</div><div class="word">silver</div></div>
+    <div class="word-block" onclick="speak(event, 'But')"><div class="phonetic">bʌt</div><div class="word">But</div></div>
+    <div class="word-block" onclick="speak(event, 'they')"><div class="phonetic">ðeɪ</div><div class="word">they</div></div>
+    <div class="word-block" onclick="speak(event, 'did')"><div class="phonetic">dɪd</div><div class="word">did</div></div>
+    <div class="word-block" onclick="speak(event, 'not')"><div class="phonetic">nɒt</div><div class="word">not</div></div>
+    <div class="word-block" onclick="speak(event, 'find')"><div class="phonetic">faɪnd ɪt</div><div class="word">find</div></div>
+    <div class="word-block" onclick="speak(event, 'it')"><div class="phonetic"></div><div class="word">it</div></div>
+</div>
+
+<!-- 句子1013 -->
+<div class="sentence">
+    <span class="sentence-number">1013</span>
+    <div class="word-block" onclick="speak(event, 'Data')"><div class="phonetic">ˈdeɪtə</div><div class="word">Data</div></div>
+    <div class="word-block" onclick="speak(event, 'agenda')"><div class="phonetic">əˈdʒendə</div><div class="word">agenda</div></div>
+    <div class="word-block" onclick="speak(event, 'is')"><div class="phonetic">ɪz</div><div class="word">is</div></div>
+    <div class="word-block" onclick="speak(event, 'given')"><div class="phonetic">ˈɡɪvn</div><div class="word">given</div></div>
+    <div class="word-block" onclick="speak(event, 'by')"><div class="phonetic">baɪ</div><div class="word">by</div></div>
+    <div class="word-block" onclick="speak(event, 'the')"><div class="phonetic">ðə</div><div class="word">the</div></div>
+    <div class="word-block" onclick="speak(event, 'pursuit')"><div class="phonetic">pəˈsjuːt</div><div class="word">pursuit</div></div>
+    <div class="word-block" onclick="speak(event, 'of')"><div class="phonetic">əv</div><div class="word">of</div></div>
+    <div class="word-block" onclick="speak(event, 'new')"><div class="phonetic">njuː</div><div class="word">new</div></div>
+    <div class="word-block" onclick="speak(event, 'knowledge')"><div class="phonetic">ˈnɒlɪdʒ</div><div class="word">knowledge</div></div>
+</div>
+
+<div class="sentence">
+    <span class="sentence-number">1012</span>
+    <div class="word-block" onclick="speak(event, 'The')"><div class="phonetic">ðə</div><div class="word">The</div></div>
+    <div class="word-block" onclick="speak(event, 'whole')"><div class="phonetic">həʊl</div><div class="word">whole</div></div>
+    <div class="word-block" onclick="speak(event, 'purpose')"><div class="phonetic">ˈpɜːpəs əv</div><div class="word">purpose</div></div>
+    <div class="word-block" onclick="speak(event, 'making')"><div class="phonetic">ˈmeɪkɪŋ</div><div class="word">making</div></div>
+    <div class="word-block" onclick="speak(event, 'notes')"><div class="phonetic">nəʊts</div><div class="word">notes</div></div>
+    <div class="word-block" onclick="speak(event, 'is')"><div class="phonetic">ɪz</div><div class="word">is</div></div>
+    <div class="word-block" onclick="speak(event, 'to')"><div class="phonetic">tuː</div><div class="word">to</div></div>
+    <div class="word-block" onclick="speak(event, 'aid')"><div class="phonetic">eɪd</div><div class="word">aid</div></div>
+    <div class="word-block" onclick="speak(event, 'your')"><div class="phonetic">jɔː</div><div class="word">your</div></div>
+    <div class="word-block" onclick="speak(event, 'learning')"><div class="phonetic">ˈlɜːnɪŋ</div><div class="word">learning</div></div>
+</div>
+<div class="sentence">
+    <span class="sentence-number">1011</span>
+    <div class="word-block" onclick="speak(event, 'some')"><div class="phonetic">sʌm</div><div class="word">some</div></div>
+    <div class="word-block" onclick="speak(event, 'political')"><div class="phonetic">pəˈlɪtɪkəl</div><div class="word">political</div></div>
+    <div class="word-block" onclick="speak(event, 'or')"><div class="phonetic">ɔː</div><div class="word">or</div></div>
+    <div class="word-block" onclick="speak(event, 'social')"><div class="phonetic">ˈsəʊʃəl</div><div class="word">social</div></div>
+    <div class="word-block" onclick="speak(event, 'problems')"><div class="phonetic">ˈprɒbləmz</div><div class="word">problems</div></div>
+    <div class="word-block" onclick="speak(event, 'by')"><div class="phonetic">baɪ</div><div class="word">by</div></div>
+    <div class="word-block" onclick="speak(event, 'going')"><div class="phonetic">ˈɡəʊɪŋ</div><div class="word">going</div></div>
+    <div class="word-block" onclick="speak(event, 'deep')"><div class="phonetic">diːp</div><div class="word">deep</div></div>
+    <div class="word-block" onclick="speak(event, 'into')"><div class="phonetic">ˈɪntuː</div><div class="word">into</div></div>
+    <div class="word-block" onclick="speak(event, 'the')"><div class="phonetic">ðə</div><div class="word">the</div></div>
+    <div class="word-block" onclick="speak(event, 'social')"><div class="phonetic">ˈsəʊʃəl</div><div class="word">social</div></div>
+</div>
+
+<div class="sentence">
+    <span class="sentence-number">1010</span>
+    <div class="word-block" onclick="speak(event, 'This')"><div class="phonetic">ðɪs ɪz ə</div><div class="word">This</div></div>
+    <div class="word-block" onclick="speak(event, 'new')"><div class="phonetic">njuː</div><div class="word">new</div></div>
+    <div class="word-block" onclick="speak(event, 'accessible')"><div class="phonetic">əkˈsesəbl</div><div class="word">accessible</div></div>
+    <div class="word-block" onclick="speak(event, 'and')"><div class="phonetic">ænd</div><div class="word">and</div></div>
+    <div class="word-block" onclick="speak(event, 'engaging')"><div class="phonetic">ɪnˈɡeɪdʒɪŋ</div><div class="word">engaging</div></div>
+    <div class="word-block" onclick="speak(event, 'textbook')"><div class="phonetic">ˈtekstbʊk</div><div class="word">textbook</div></div>
+    <div class="word-block" onclick="speak(event, 'written')"><div class="phonetic">ˈrɪtn</div><div class="word">written</div></div>
+    <div class="word-block" onclick="speak(event, 'by')"><div class="phonetic">baɪ</div><div class="word">by</div></div>
+    <div class="word-block" onclick="speak(event, 'academics')"><div class="phonetic">ˌækəˈdemɪks</div><div class="word">academics</div></div>
+</div>
+
+<div class="sentence">
+    <span class="sentence-number">921</span>
+    <div class="word-block" onclick="speak(event, 'There')"><div class="phonetic">ðeə</div><div class="word">There</div></div>
+    <div class="word-block" onclick="speak(event, 'were')"><div class="phonetic">wɜː</div><div class="word">were</div></div>
+    <div class="word-block" onclick="speak(event, 'various')"><div class="phonetic">ˈveəriəs</div><div class="word">various</div></div>
+    <div class="word-block" onclick="speak(event, 'explanations')"><div class="phonetic">ˌekspləˈneɪʃənz</div><div class="word">explanations</div></div>
+    <div class="word-block" onclick="speak(event, 'for')"><div class="phonetic">fɔː</div><div class="word">for</div></div>
+    <div class="word-block" onclick="speak(event, 'volcano')"><div class="phonetic">vɒlˈkeɪnəʊ</div><div class="word">volcano</div></div>
+    <div class="word-block" onclick="speak(event, 'behavior')"><div class="phonetic">bɪˈheɪvjə</div><div class="word">behavior</div></div>
+    <div class="word-block" onclick="speak(event, 'before')"><div class="phonetic">bɪˈfɔː</div><div class="word">before</div></div>
+    <div class="word-block" onclick="speak(event, 'the')"><div class="phonetic">ðə</div><div class="word">the</div></div>
+    <div class="word-block" onclick="speak(event, 'structure')"><div class="phonetic">ˈstrʌktʃə</div><div class="word">structure</div></div>
+</div>
+<div class="sentence">
+    <span class="sentence-number">1009</span>
+    <div class="word-block" onclick="speak(event, 'in')"><div class="phonetic">ɪn</div><div class="word">in</div></div>
+    <div class="word-block" onclick="speak(event, 'quality')"><div class="phonetic">ˈkwɒlɪti</div><div class="word">quality</div></div>
+    <div class="word-block" onclick="speak(event, 'of')"><div class="phonetic">əv</div><div class="word">of</div></div>
+    <div class="word-block" onclick="speak(event, 'life')"><div class="phonetic">laɪf</div><div class="word">life</div></div>
+    <div class="word-block" onclick="speak(event, 'employment')"><div class="phonetic">ɪmˈplɔɪmənt</div><div class="word">employment</div></div>
+    <div class="word-block" onclick="speak(event, 'status')"><div class="phonetic">ˈsteɪtəs</div><div class="word">status</div></div>
+    <div class="word-block" onclick="speak(event, 'and')"><div class="phonetic">ænd</div><div class="word">and</div></div>
+    <div class="word-block" onclick="speak(event, 'in')"><div class="phonetic">ɪn</div><div class="word">in</div></div>
+    <div class="word-block" onclick="speak(event, 'the')"><div class="phonetic">ðə</div><div class="word">the</div></div>
+    <div class="word-block" onclick="speak(event, 'reduction')"><div class="phonetic">rɪˈdʌkʃən</div><div class="word">reduction</div></div>
+</div>
+
